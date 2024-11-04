@@ -322,6 +322,69 @@ section ul li h3 {
     line-height: 1.6;
 }
 
+/* Estilo da Seção de Idiomas */
+.idiomas {
+    margin-bottom: 30px;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.idiomas h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: var(--main-bg-color);
+    border-bottom: 2px solid var(--main-bg-color);
+    padding-bottom: 5px;
+}
+
+.idiomas ul {
+    list-style: none;
+    padding: 0;
+}
+
+.idiomas li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+/* Nome do Idioma */
+.language-name {
+    flex: 1;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+/* Barra de Proficiência */
+.language-bar {
+    width: 60%;
+    height: 15px;
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 0 15px;
+    position: relative;
+    box-shadow: inset 0 5px 10px rgba(117, 117, 117, 0.288);
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #4caf50;
+    width: 0%; /* Controlada pelo JS */
+    transition: width 1s ease-in-out;
+}
+
+/* Nível de Proficiência */
+.language-level {
+    width: 20%;
+    text-align: right;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
 /*SKILLS SECTION*/
 .skills{
     margin-bottom: 30px;
