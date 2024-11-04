@@ -24,6 +24,41 @@ summaryLinks.forEach((link) => {
 
 //END SUMMARY SECTION
 
+// Função: Carregar Barras de Idiomas com Animação
+function carregarIdiomas() {
+  const progressBars = document.querySelectorAll('.idiomas .progress-bar');
+
+  progressBars.forEach(bar => {
+    const level = bar.getAttribute('data-level');
+    let width;
+
+    // Definir a largura da barra com base no nível
+    switch (level) {
+      case 'nativo':
+        width = '100%';
+        break;
+      case 'fluente':
+        width = '80%';
+        break;
+      case 'intermediário':
+        width = '60%';
+        break;
+      case 'iniciante':
+        width = '40%';
+        break;
+      default:
+        width = '0%';
+    }
+
+    // Aplicar a largura com atraso para garantir animação suave
+    setTimeout(() => {
+      bar.style.width = width;
+    }, 100);
+  });
+}
+
+// Evento: Carregar as barras de idiomas ao abrir a página
+window.addEventListener('load', carregarIdiomas);
 
 
 //START SKILLS SECTION
