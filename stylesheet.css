@@ -75,7 +75,6 @@ body {
 .profile-image:hover {
     transform: scale(1.05);
     border-color: rgba(255, 255, 255, 0.4);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
 #header h1 {
@@ -154,23 +153,67 @@ section h2::after {
     background: #1ABC9C;
 }
 
-/* Skills Section */
-.skills ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+/* Summary Navigation */
+.summary ul {
+    list-style: none;
     padding: 0;
 }
 
+.summary ul li {
+    margin-bottom: 15px;
+}
+
+.summary ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: all var(--transition-speed) ease;
+    padding: 8px 15px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    display: block;
+}
+
+.summary ul li a:hover {
+    background: rgba(26, 188, 156, 0.2);
+    transform: translateX(10px);
+}
+
+/* Experience Section */
+.job {
+    padding: 20px;
+    border-left: 4px solid #1ABC9C;
+    margin-bottom: 30px;
+    background: rgba(26, 188, 156, 0.05);
+    border-radius: 0 15px 15px 0;
+    transition: all var(--transition-speed) ease;
+}
+
+.job:hover {
+    transform: translateX(10px);
+    background: rgba(26, 188, 156, 0.1);
+}
+
+.date {
+    display: inline-block;
+    padding: 5px 15px;
+    background: #1ABC9C;
+    color: #fff;
+    border-radius: 20px;
+    font-size: 0.9em;
+    margin: 10px 0;
+}
+
+/* Skills Section */
 .skill-bar {
     position: relative;
     width: 100%;
     height: 25px;
-    background: #f0f0f0;
+    background: var(--progress-bg-color);
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
     margin: 15px 0;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .progress-bar {
@@ -194,62 +237,35 @@ section h2::after {
     line-height: 25px;
 }
 
-/* Experience Section */
-.experience article {
-    padding: 20px;
-    border-left: 3px solid #1ABC9C;
-    margin-bottom: 25px;
-    background: rgba(26, 188, 156, 0.05);
-    border-radius: 0 15px 15px 0;
-}
-
-.date {
-    display: inline-block;
-    padding: 5px 15px;
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
     background: #1ABC9C;
-    color: #fff;
-    border-radius: 20px;
-    font-size: 0.9em;
-    margin: 10px 0;
-}
-
-/* Education Section */
-.education li {
-    padding: 20px;
-    border-radius: 15px;
-    background: rgba(44, 62, 80, 0.05);
-    margin-bottom: 20px;
-    transition: all var(--transition-speed) ease;
-}
-
-.education li:hover {
-    background: rgba(44, 62, 80, 0.1);
-    transform: translateX(10px);
-}
-
-/* Contact Section */
-.contact {
-    background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
-}
-
-.contact p {
-    padding: 10px 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
-    gap: 10px;
-}
-
-.contact a {
-    color: var(--link-color);
+    justify-content: center;
+    color: #fff;
     text-decoration: none;
+    opacity: 0;
+    visibility: hidden;
     transition: all var(--transition-speed) ease;
-    padding: 5px 10px;
-    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.contact a:hover {
-    color: #1ABC9C;
-    background: rgba(26, 188, 156, 0.1);
+.back-to-top.active {
+    opacity: 1;
+    visibility: visible;
+    bottom: 30px;
+}
+
+.back-to-top:hover {
+    background: #16a085;
+    transform: translateY(-3px);
 }
 
 /* Footer */
@@ -259,11 +275,6 @@ footer {
     background: linear-gradient(145deg, #2C3E50 0%, #3498db 100%);
     color: #fff;
     margin-top: 40px;
-}
-
-footer .container {
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 /* Responsive Design */
@@ -303,10 +314,6 @@ footer .container {
     section {
         padding: 20px;
     }
-
-    .skills ul {
-        grid-template-columns: 1fr;
-    }
 }
 
 @media (max-width: 480px) {
@@ -318,22 +325,13 @@ footer .container {
         width: 120px;
         height: 160px;
     }
-}
 
-/* Animations */
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+    .back-to-top {
+        right: 15px;
+        bottom: 15px;
+        width: 40px;
+        height: 40px;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-section {
-    animation: slideIn 0.5s ease-out forwards;
 }
 
 /* Print Styles */
@@ -360,7 +358,8 @@ section {
         box-shadow: none;
     }
 
-    .social-links, .back-to-top {
+    .social-links,
+    .back-to-top {
         display: none;
     }
 }
