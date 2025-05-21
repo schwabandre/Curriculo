@@ -99,22 +99,24 @@ window.addEventListener('load', () => {
 // Back to top button functionality
 const backToTop = document.querySelector('.back-to-top');
 
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 300) {
-    backToTop.style.display = 'block';
-    backToTop.style.opacity = '1';
-  } else {
-    backToTop.style.opacity = '0';
-    setTimeout(() => {
-      backToTop.style.display = 'none';
-    }, 300);
-  }
-});
-
-backToTop.addEventListener('click', (e) => {
-  e.preventDefault();
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
+if (backToTop) {
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      backToTop.style.display = 'block';
+      backToTop.style.opacity = '1';
+    } else {
+      backToTop.style.opacity = '0';
+      setTimeout(() => {
+        backToTop.style.display = 'none';
+      }, 300);
+    }
   });
-});
+
+  backToTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+}
